@@ -1,0 +1,114 @@
+If you're asking for a simple or longer Java program, I can certainly provide one! Here's an example of a Java program that is a bit longer and includes concepts like loops, conditionals, and methods. This example is a basic calculator program.
+
+import java.util.Scanner;
+
+public class Calculator {
+
+    // Method to add two numbers
+    public static double add(double num1, double num2) {
+        return num1 + num2;
+    }
+
+    // Method to subtract two numbers
+    public static double subtract(double num1, double num2) {
+        return num1 - num2;
+    }
+
+    // Method to multiply two numbers
+    public static double multiply(double num1, double num2) {
+        return num1 * num2;
+    }
+
+    // Method to divide two numbers
+    public static double divide(double num1, double num2) {
+        if (num2 == 0) {
+            System.out.println("Error! Division by zero.");
+            return Double.NaN;  // Return NaN (Not-a-Number) to indicate an error.
+        }
+        return num1 / num2;
+    }
+
+    // Method to display the menu and get user's choice
+    public static int displayMenu() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Calculator Program!");
+        System.out.println("Select an operation:");
+        System.out.println("1. Add");
+        System.out.println("2. Subtract");
+        System.out.println("3. Multiply");
+        System.out.println("4. Divide");
+        System.out.println("5. Exit");
+        System.out.print("Enter your choice: ");
+        return scanner.nextInt();
+    }
+
+    // Method to execute the chosen operation
+    public static void executeOperation(int choice, double num1, double num2) {
+        double result;
+        switch (choice) {
+            case 1:
+                result = add(num1, num2);
+                System.out.println("The result of addition is: " + result);
+                break;
+            case 2:
+                result = subtract(num1, num2);
+                System.out.println("The result of subtraction is: " + result);
+                break;
+            case 3:
+                result = multiply(num1, num2);
+                System.out.println("The result of multiplication is: " + result);
+                break;
+            case 4:
+                result = divide(num1, num2);
+                if (!Double.isNaN(result)) {
+                    System.out.println("The result of division is: " + result);
+                }
+                break;
+            case 5:
+                System.out.println("Exiting the program. Goodbye!");
+                break;
+            default:
+                System.out.println("Invalid choice! Please select a valid option.");
+                break;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double num1, num2;
+        int choice;
+
+        do {
+            // Get numbers from the user
+            System.out.print("Enter the first number: ");
+            num1 = scanner.nextDouble();
+            System.out.print("Enter the second number: ");
+            num2 = scanner.nextDouble();
+
+            // Display the menu and get the user's choice
+            choice = displayMenu();
+
+            // Execute the operation based on user's choice
+            executeOperation(choice, num1, num2);
+
+        } while (choice != 5);  // Repeat the process until user chooses to exit
+    }
+}
+
+Explanation of the Program:
+
+1. Methods: There are separate methods for adding, subtracting, multiplying, and dividing two numbers. Each of these methods returns the result of the operation.
+
+
+2. Menu System: The displayMenu method shows the available operations (add, subtract, multiply, divide) and allows the user to select one.
+
+
+3. Error Handling: In the divide method, there's a check to ensure the user doesn't attempt to divide by zero.
+
+
+4. Main Loop: The main method runs a loop that continuously asks for two numbers, displays the menu, and performs the selected operation. The loop stops when the user selects option 5 (Exit).
+
+
+
+Feel free to customize or extend the program with more features like handling more complex operations or input validation!
+
